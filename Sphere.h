@@ -15,29 +15,8 @@ public:
     Sphere() {};
     ~Sphere() {};
 
-    void draw() {
-        PVList pvs = getPoints(m_segmentsX, m_segmentsY);
-        Surface surface = getSurface(m_segmentsX, m_segmentsY);
-        for (Surface::iterator it = surface.begin(); it < surface.end(); it++) {
-            Face tri = *it;
-
-            glBegin(GL_TRIANGLES);
-            for (int i = 0; i < 3; i++) {
-                PV pv = pvs[tri[i]];
-                glNormal3f(pv.v[0], pv.v[1], pv.v[2]);
-                glVertex3f(pv.p[0], pv.p[1], pv.p[2]);
-            }
-            glEnd();
-        }
-    };
-
-    void drawNormal() {
-        
-    };
-
-private:
-    PVList pvs; // length: segX * (segY + 1)
-    Surface surface; // 1 face = 1 tri, triangles make up surface
+protected:
+    /* pvs length: segX * (segY + 1) */
 
     /* Calculates pvs and fills verties
      * - will not recalculate pvs if pvs has correct number of pvs

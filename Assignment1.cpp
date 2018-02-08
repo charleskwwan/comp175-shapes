@@ -25,8 +25,8 @@ enum OBJ_TYPE {
 int  wireframe = 1;
 int  fill = 1;
 int  normal = 0;
-int  segmentsX = 3;
-int  segmentsY = 3;
+int  segmentsX = 10;
+int  segmentsY = 10;
 int     rotX = 0;
 int     rotY = 0;
 int     rotZ = 0;

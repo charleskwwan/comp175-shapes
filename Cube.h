@@ -9,12 +9,8 @@ public:
     Cube() {};
     ~Cube() {};
 
-    void draw() {
-    };
+protected:
 
-
-    void drawNormal() {
-    };
 };
 
 #endif
