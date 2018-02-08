@@ -4,6 +4,8 @@
 #include <GL/glui.h>
 #include "Algebra.h"
 
+#define DEFAULT_LENGTH 0.5f
+
 class Shape {
 public:
     Shape() {};

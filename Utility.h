@@ -2,13 +2,12 @@
 #define UTILITY_H
 
 /* Converts 2D x,y indices to a 1D index */
-unsigned int toIndex(
-    unsigned int x,
-    unsigned int y,
-    unsigned int xMax,
-    unsigned int yMax // technically unnecessary
+unsigned toIndex(
+    unsigned x,
+    unsigned y,
+    unsigned yMax
 ) {
-    return x * xMax + y;
+    return x * yMax + y;
 }
 
 #endif
