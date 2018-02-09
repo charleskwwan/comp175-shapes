@@ -1,7 +1,10 @@
 #ifndef CYLINDER_H
 #define CYLINDER_H
 
+#include <iostream>
 #include "Shape.h"
+#include "Utility.h"
+#include "Geometry.h"
 
 class Cylinder : public Shape {
 public:
@@ -21,7 +24,7 @@ protected:
                 for (int y = 0; y < segY + 1; y++) {
                     Point p(
                         r * cos(x * ax),
-                        DEFAULT_LENGTH - y / (double)segY,
+                        r - y / (double)segY,
                         r * sin(x * ax)
                     );
                     Vector v(
@@ -36,8 +39,8 @@ protected:
                 }
             }
 
-            PV top = {Point(0, DEFAULT_LENGTH, 0), Vector(0, 1, 0)};
-            PV bot = {Point(0, -DEFAULT_LENGTH, 0), Vector(0, -1, 0)};
+            PV top = {Point(0, 0.5f, 0), Vector(0, 1, 0)};
+            PV bot = {Point(0, -0.5f, 0), Vector(0, -1, 0)};
             pvs.push_back(top);
             pvs.push_back(bot);
         }
@@ -50,7 +53,37 @@ protected:
             Surface().swap(surface); // free memory
 
             for (int x = 0; x < segX; x++) {
-                for 
+                for (int y = 0; y < segY + 1; y++) {
+                    int li = x;
+                    int ri = (x + 1) % segX;
+
+                    if (y == 0) { // extra triangle to top
+                        surface.push_back(toTriangle(
+                            segX * (segY + 1), // top index
+                            toIndex(li, y, segY + 1),
+                            toIndex(ri, y, segY + 1)
+                        ));
+                    }
+
+                    if (y == segY) { // triangle to bot only
+                        surface.push_back(toTriangle(
+                            segX * (segY + 1) + 1, // bot index
+                            toIndex(ri, y, segY + 1),
+                            toIndex(li, y, segY + 1)
+                        ));
+                    } else {
+                        surface.push_back(toTriangle(
+                            toIndex(ri, y, segY + 1),
+                            toIndex(li, y, segY + 1),
+                            toIndex(ri, y + 1, segY + 1)
+                        ));
+                        surface.push_back(toTriangle(
+                            toIndex(ri, y + 1, segY + 1),
+                            toIndex(li, y, segY + 1),
+                            toIndex(li, y + 1, segY + 1)
+                        ));
+                    }
+                }
             }
         }
         return surface;
