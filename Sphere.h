@@ -17,18 +17,15 @@ public:
 
 protected:
     /* pvs length: segX * (segY + 1) */
-
-    /* Calculates pvs and fills verties
-     * - will not recalculate pvs if pvs has correct number of pvs
-     */
+    
     PVList getPoints(int segX, int segY) {
         if ((int)pvs.size() != segX * (segY + 1)) {
+            pvs.clear();
+            PVList().swap(pvs); // free memory
+
             double ax = 2 * PI / segX;
             double ay = PI / segY;
             double r = DEFAULT_LENGTH; // radius
-
-            pvs.clear();
-            PVList().swap(pvs); // free memory
 
             for (int x = 0; x < segX; x++) {
                 for (int y = 0; y < segY + 1; y++) {
@@ -52,9 +49,6 @@ protected:
         return pvs;
     }
 
-    /* Calculates triangles from pvs and fills surface
-     * - will not recalculate slice has correct number of triangles
-     */
     Surface getSurface(int segX, int segY) {
         if ((int)surface.size() != segX * (2 * segY - 2)) {
             surface.clear();

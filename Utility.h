@@ -2,7 +2,7 @@
 #define UTILITY_H
 
 /* Converts 2D x,y indices to a 1D index */
-unsigned toIndex(
+inline unsigned toIndex(
     unsigned x,
     unsigned y,
     unsigned yMax
