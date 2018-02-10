@@ -49,9 +49,9 @@ protected:
             surface.clear();
             Surface().swap(surface); // free memory
 
-            for (int x = 0; x < segX; x++) {
-                for 
-            }
+            // for (int x = 0; x < segX; x++) {
+            //     for 
+            // }
         }
         return surface;
     }

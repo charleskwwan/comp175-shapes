@@ -3,6 +3,7 @@
 Tufts COMP 175: Assignment 1: Shapes
 
 ****************************************************************************/
+#include <iostream>
 
 #include <GL/glui.h>
 #include "Shape.h"

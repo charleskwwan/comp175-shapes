@@ -4,6 +4,7 @@
 #include <GL/glui.h>
 #include "Algebra.h"
 #include "Geometry.h"
+#include "Utility.h"
 
 #define DEFAULT_LENGTH 0.5f
 
@@ -20,6 +21,7 @@ public:
     void draw() {
         PVList pvs = getPoints(m_segmentsX, m_segmentsY);
         Surface surface = getSurface(m_segmentsX, m_segmentsY);
+        
 
         for (Surface::iterator it = surface.begin(); it < surface.end(); it++) {
             Face tri = *it;
@@ -32,6 +34,7 @@ public:
             }
             glEnd();
         }
+
     }
 
     void drawNormal() {
