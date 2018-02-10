@@ -28,15 +28,15 @@ protected:
 
 			for (int i=0; i<segY+1; i++){
 				Point p(
-					r * (i/segY),
-					DEFAULT_LENGTH - (i/segY),
+					r * (i/ float(segY)),
+					DEFAULT_LENGTH - (i/float(segY)),
 					0
 				);
 				Vector v(1.0,.5f,0.0);
 				v.normalize();
 				PV pv = {p, v};
 				line.push_back(pv);
-
+                
 			}
 
 			// rotate the line around y
