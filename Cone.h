@@ -63,16 +63,16 @@ protected:
 			for (int i=0; i<segX; i++){
                 for (int j=0; j<segY+1; j++){
 
-                    int ri = (i+1)%segX;
+                    int ri = (i+1)%segX; // right line index
 
-                    if (j==0){
+                    if (j==0){ // tip
                         surface.push_back(toTriangle(
                             toIndex(i, j, segY + 1),
                             toIndex(i, j + 1, segY + 1),
                             toIndex(ri, j + 1, segY + 1)
                         ));
                     }
-                    else if (j == segY){
+                    else if (j == segY){ //bottom
                         surface.push_back(toTriangle(
                             toIndex(i, j, segY + 1),
                             toIndex(ri, j, segY + 1),

@@ -9,6 +9,7 @@ Tufts COMP 175: Assignment 1: Shapes
 #include "Cylinder.h"
 #include "Cone.h"
 #include "Sphere.h"
+#include "Diamond.h"
 
 enum OBJ_TYPE {
     SHAPE_CUBE = 0,
@@ -39,6 +40,7 @@ Cube* cube = new Cube();
 Cylinder* cylinder = new Cylinder();
 Cone* cone = new Cone();
 Sphere* sphere = new Sphere();
+Diamond* diamond = new Diamond();
 Shape* shape = cube;
 
 /***************************************** callback_obj() ***********/
@@ -58,7 +60,7 @@ void callback_obj(int id) {
         shape = sphere;
         break;
     case SHAPE_SPECIAL1:
-        shape = cube;
+        shape = diamond;
         break;
     default:
         shape = cube;
@@ -157,6 +159,7 @@ void onExit()
     delete cylinder;
     delete cone;
     delete sphere;
+    delete diamond;
     // delete torus;
 }
 
@@ -242,7 +245,8 @@ int main(int argc, char* argv[])
     glui->add_radiobutton_to_group(group1, "Cylinder");
     glui->add_radiobutton_to_group(group1, "Cone");
     glui->add_radiobutton_to_group(group1, "Sphere");
-    glui->add_radiobutton_to_group(group1, "Special1");
+    glui->add_radiobutton_to_group(group1, "Diamond");
+    glui->add_radiobutton_to_group(group1, "Special2");
     glui->add_button("Quit", 0, (GLUI_Update_CB)exit);
 
     glui->set_main_gfx_window(main_window);
