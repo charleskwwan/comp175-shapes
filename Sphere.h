@@ -15,9 +15,10 @@ public:
     Sphere() {};
     ~Sphere() {};
 
+private:
+    double angle = 0;
+
 protected:
-    /* pvs length: segX * (segY + 1) */
-    
     PVList getPoints(int segX, int segY) {
         if ((int)pvs.size() != segX * (segY + 1)) {
             pvs.clear();
