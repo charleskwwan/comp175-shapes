@@ -9,6 +9,7 @@ Tufts COMP 175: Assignment 1: Shapes
 #include "Cylinder.h"
 #include "Cone.h"
 #include "Sphere.h"
+#include "Steinmetz.h"
 
 enum OBJ_TYPE {
     SHAPE_CUBE = 0,
@@ -24,8 +25,8 @@ enum OBJ_TYPE {
 int  wireframe = 1;
 int  fill = 1;
 int  normal = 0;
-int  segmentsX = 10;
-int  segmentsY = 10;
+int  segmentsX = 3;
+int  segmentsY = 3;
 int     rotX = 0;
 int     rotY = 0;
 int     rotZ = 0;
@@ -39,6 +40,7 @@ Cube* cube = new Cube();
 Cylinder* cylinder = new Cylinder();
 Cone* cone = new Cone();
 Sphere* sphere = new Sphere();
+Steinmetz* steinmetz = new Steinmetz();
 Shape* shape = cube;
 
 /***************************************** callback_obj() ***********/
@@ -58,7 +60,7 @@ void callback_obj(int id) {
         shape = sphere;
         break;
     case SHAPE_SPECIAL1:
-        shape = cube;
+        shape = steinmetz;
         break;
     default:
         shape = cube;
@@ -242,7 +244,7 @@ int main(int argc, char* argv[])
     glui->add_radiobutton_to_group(group1, "Cylinder");
     glui->add_radiobutton_to_group(group1, "Cone");
     glui->add_radiobutton_to_group(group1, "Sphere");
-    glui->add_radiobutton_to_group(group1, "Special1");
+    glui->add_radiobutton_to_group(group1, "Steinmetz");
     glui->add_button("Quit", 0, (GLUI_Update_CB)exit);
 
     glui->set_main_gfx_window(main_window);

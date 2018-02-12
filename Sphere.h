@@ -1,9 +1,6 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
-#include <iostream>
-#include <cmath>
-#include <vector>
 #include "Geometry.h"
 #include "Shape.h"
 #include "Utility.h"
@@ -14,9 +11,6 @@ class Sphere : public Shape {
 public:
     Sphere() {};
     ~Sphere() {};
-
-private:
-    double angle = 0;
 
 protected:
     PVList getPoints(int segX, int segY) {

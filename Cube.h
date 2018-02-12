@@ -1,7 +1,6 @@
 #ifndef CUBE_H
 #define CUBE_H
 
-#include <vector>
 #include "Utility.h"
 #include "Geometry.h"
 #include "Shape.h"
@@ -76,15 +75,6 @@ protected:
             }
         }
         return surface;
-    }
-
-private:
-    inline unsigned toSideIndex(
-        unsigned side,
-        unsigned x, unsigned y,
-        unsigned xMax, unsigned yMax
-    ) {
-        return side * xMax * yMax + toIndex(x, y, yMax);
     }
 };
 

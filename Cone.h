@@ -1,6 +1,8 @@
 #ifndef CONE_H
 #define CONE_H
 
+#include "Utility.h"
+#include "Geometry.h"
 #include "Shape.h"
 
 class Cone : public Shape {

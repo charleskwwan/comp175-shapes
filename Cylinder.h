@@ -24,7 +24,7 @@ protected:
                 for (int y = 0; y < segY + 1; y++) {
                     Point p(
                         r * cos(x * ax),
-                        r - y / (double)segY,
+                        DEFAULT_LENGTH - y / (double)segY,
                         r * sin(x * ax)
                     );
                     Vector v(
